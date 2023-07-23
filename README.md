@@ -19,12 +19,12 @@ pip install opencv-python tkinter pillow
 
 ## How to Use
 
-1. Clone the repository or download the `app.py` file.
+1. Clone the repository or download the `face_detection.py` file.
 
-2. Run the `app.py` script using the following command:
+2. Run the `face_detection.py` script using the following command:
 
 ```bash
-python app.py or python3 app.py (linux/macOS)
+python face_detection.py
 ```
 
 3. A Tkinter window will open with a "Start Detect" button.
@@ -53,12 +53,13 @@ This function is called when the "Start Detect" button is clicked. It performs t
 
 1. Loads the pre-trained Haar Cascade classifier for face detection using `cv2.CascadeClassifier`.
 2. Accesses the default camera using `cv2.VideoCapture`.
-3. Captures each frame from the camera using a loop.
+3. Creates a nested function `update_frame()` to continuously capture frames, detect faces, and update the video stream displayed in the Tkinter label.
 4. Converts the frame to grayscale for face detection using `cv2.cvtColor`.
 5. Detects faces in the grayscale frame using `face_cascade.detectMultiScale`.
 6. Draws rectangles around the detected faces using `cv2.rectangle`.
 7. Converts the frame to RGB format for displaying in Tkinter using `PIL.Image.fromarray` and `PIL.ImageTk.PhotoImage`.
-8. Updates the Tkinter label with the new frame using `label.config`.
+8. Schedules the next update after 10 milliseconds using `label.after(10, update_frame)`.
+9. Releases the VideoCapture and closes the Tkinter window when 'q' is pressed or the window is closed.
 
 ### GUI Elements
 
@@ -72,14 +73,19 @@ This function is called when the "Start Detect" button is clicked. It performs t
 
 ## Troubleshooting
 
-- If the camera is not accessible, ensure that your device has a working camera, and check camera permissions.
-- If you encounter any errors or have issues with the application, feel free to contact the project maintainers.
+- If the camera is not accessible, ensure that your device has a working camera and check camera permissions.
 
+- If you encounter any errors or have issues with the application, feel free to contact the project maintainer.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
 For any inquiries or questions regarding the project, you can reach out to:
 
-- Project Maintainer: [SUYASH SRIVASTAVA] (svtsuyash@gmail.com)
+- Project Maintainer: SUYASH
+- Email: svtsuyash@gmail.com
 
 ---
