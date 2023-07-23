@@ -11,7 +11,7 @@ def start_detection():
         messagebox.showerror("Error", "Camera not accessible.")
         return
 
-    # Create a function to update the video stream in the Tkinter label.
+    # function to update the video stream in the Tkinter label to tackle the black screen error faced in the beginning.
     def update_frame():
         ret, frame = cap.read()
 
@@ -28,13 +28,13 @@ def start_detection():
             label.img_tk = img_tk
             label.config(image=img_tk)
 
-        # Schedule the next update after 10 milliseconds.
+        # frame update set to 10 milliseconds.
         label.after(10, update_frame)
 
-    # Start the update_frame loop.
+    # Start of the update_frame loop.
     update_frame()
 
-    # Release the VideoCapture and close the window when 'q' is pressed or the window is closed.
+    # killing subprocesses when exited.
     def close_window():
         cap.release()
         root.destroy()
