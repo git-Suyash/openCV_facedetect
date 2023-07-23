@@ -19,12 +19,12 @@ pip install opencv-python tkinter pillow
 
 ## How to Use
 
-1. Clone the repository or download the `face_detection.py` file.
+1. Clone the repository or download the `app.py` file.
 
-2. Run the `face_detection.py` script using the following command:
+2. Run the `app.py` script using the following command:
 
 ```bash
-python face_detection.py
+python app.py or python3 app.py (linux/macOS)
 ```
 
 3. A Tkinter window will open with a "Start Detect" button.
